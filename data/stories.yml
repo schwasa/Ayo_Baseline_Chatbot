@@ -1,0 +1,585 @@
+version: "3.1"
+
+stories:
+
+- story: start via telegram
+  steps:
+  - intent: start
+  - action: utter_greet
+
+- story: happy path and information
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+  - action: utter_PERSON
+  - intent: mood_happy
+  - action: utter_happy_neutral_unhappy
+  - intent: affirm
+  - action: utter_bot_capabilities
+
+- story: neutral path and information
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+  - action: utter_PERSON
+  - intent: mood_neutral
+  - action: utter_happy_neutral_unhappy
+  - intent: affirm
+  - action: utter_bot_capabilities
+
+- story: sad path and information
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+  - action: utter_PERSON
+  - intent: mood_unhappy
+  - action: utter_happy_neutral_unhappy
+  - intent: affirm
+  - action: utter_bot_capabilities
+
+- story: sad path and no information
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: PERSON
+    - action: utter_PERSON
+    - intent: mood_unhappy
+    - action: utter_happy_neutral_unhappy
+    - intent: deny
+    - action: utter_unhappy_anything_else
+
+- story: fac_disclosure should and yes and happy
+  steps:
+    - intent: fac_disclosure_should
+    - action: utter_fac_disclosure
+    - intent: affirm
+    - action: utter_fac_disclosure_yes
+    - intent: mood_happy
+    - action: utter_fac_disclosure2
+
+- story: fac_disclosure should and yes and unhappy
+  steps:
+    - intent: fac_disclosure_should
+    - action: utter_fac_disclosure
+    - intent: affirm
+    - action: utter_fac_disclosure_yes
+    - intent: mood_unhappy
+    - action: utter_fac_disclosure2
+
+- story: fac_disclosure should and no and happy
+  steps:
+    - intent: fac_disclosure_should
+    - action: utter_fac_disclosure
+    - intent: deny
+    - action: utter_fac_disclosure_no
+    - intent: mood_happy
+    - action: utter_fac_disclosure2
+
+- story: fac_disclosure should and no and unhappy
+  steps:
+    - intent: fac_disclosure_should
+    - action: utter_fac_disclosure
+    - intent: deny
+    - action: utter_fac_disclosure_no
+    - intent: mood_unhappy
+    - action: utter_fac_disclosure2
+
+- story: fac_disclosure how
+  steps:
+    - intent: fac_disclosure_how
+    - action: utter_fac_disclosure_how
+
+- story: fac_adherence_why and happy
+  steps:
+    - intent: fac_adherence_why
+    - action: utter_fac_adherence_why
+    - intent: mood_happy
+    - action: utter_fac_adherence_how
+
+- story: fac_adherence_why and unhappy
+  steps:
+    - intent: fac_adherence_why
+    - action: utter_fac_adherence_why
+    - intent: mood_unhappy
+    - action: utter_fac_adherence_how
+
+- story: fac_adherence_how and happy
+  steps:
+  - intent: fac_adherence_how
+  - action: utter_fac_adherence_why
+  - intent: mood_happy
+  - action: utter_fac_adherence_how
+
+
+- story: fac_adherence_how and unhappy
+  steps:
+    - intent: fac_adherence_how
+    - action: utter_fac_adherence_why
+    - intent: mood_unhappy
+    - action: utter_fac_adherence_how
+
+- story: fac_contracting_sex and yes
+  steps:
+    - intent: fac_contracting_sex
+    - action: utter_fac_contracting_general
+    - intent: affirm
+    - action: utter_faq_contracting_HIV
+    - action: utter_fac_contracting_sex
+
+- story: fac_contracting_sex and no
+  steps:
+    - intent: fac_contracting_sex
+    - action: utter_fac_contracting_general
+    - intent: deny
+    - action: utter_faq_contracting_HIV
+    - action: utter_fac_contracting_sex
+
+- story: fac_contracting_kids male and happy
+  steps:
+    - intent: fac_contracting_kids
+    - action: utter_fac_contracting_kids_mf
+    - intent: male
+    - action: utter_fac_contracting_kids_feel
+    - intent: mood_happy
+    - action: utter_fac_contracting_kids
+
+- story: fac_contracting_kids female and happy
+  steps:
+    - intent: fac_contracting_kids
+    - action: utter_fac_contracting_kids_mf
+    - intent: female
+    - action: utter_fac_contracting_kids_feel
+    - intent: mood_happy
+    - action: utter_fac_contracting_kids
+
+- story: fac_contracting_kids male and happy
+  steps:
+    - intent: fac_contracting_kids
+    - action: utter_fac_contracting_kids_mf
+    - intent: male
+    - action: utter_fac_contracting_kids_feel
+    - intent: mood_unhappy
+    - action: utter_fac_contracting_kids
+
+- story: fac_contracting_kids female and unhappy
+  steps:
+    - intent: fac_contracting_kids
+    - action: utter_fac_contracting_kids_mf
+    - intent: female
+    - action: utter_fac_contracting_kids_feel
+    - intent: mood_unhappy
+    - action: utter_fac_contracting_kids
+
+- story: faq_explain_HIV
+  steps:
+    - intent: faq_explain_HIV
+    - action: utter_faq_explain_HIV
+
+- story: faq_contracting_HIV
+  steps:
+    - intent: faq_contracting_HIV
+    - action: utter_faq_contracting_HIV
+
+- story: faq_HIV_cure
+  steps:
+    - intent: faq_HIV_cure
+    - action: utter_faq_HIV_cure
+
+- story: chitchat1
+  steps:
+  - intent: greetings.how_are_you
+  - action: utter_greetings.how_are_you
+
+- story: chitchat2
+  steps:
+  - intent: agent.can_you_help
+  - action: utter_agent.can_you_help
+
+- story: chitchat3
+  steps:
+  - intent: appraisal.thank_you
+  - action: utter_appraisal.thank_you
+
+- story: faq_HIV_vs_AIDS
+  steps:
+    - intent: faq_HIV_vs_AIDS
+    - action: utter_faq_HIV_vs_AIDS
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+    entities:
+    - name: Sandro
+  - action: utter_PERSON
+  - intent: mood_happy
+  - action: utter_happy_neutral_unhappy
+  - intent: affirm
+  - action: utter_bot_capabilities
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+    entities:
+    - PERSON: Svenja
+  - action: utter_PERSON
+  - intent: mood_happy
+  - slot_was_set:
+    - mood: 1
+  - action: utter_happy_neutral_unhappy
+  - intent: affirm
+  - action: utter_bot_capabilities
+
+- story: interactive_story_3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+    entities:
+    - PERSON: Stefan
+  - slot_was_set:
+    - PERSON: Stefan
+  - action: utter_PERSON
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+  - action: utter_happy_neutral_unhappy
+  - intent: affirm
+  - action: utter_bot_capabilities
+
+- story: interactive_story_4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+    entities:
+    - PERSON: Petra
+  - slot_was_set:
+    - PERSON: Petra
+  - action: utter_PERSON
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+  - action: utter_happy_neutral_unhappy
+  - intent: deny
+  - action: utter_unhappy_anything_else
+
+- story: interactive_story_5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+    entities:
+    - PERSON: Petra
+  - slot_was_set:
+    - PERSON: Petra
+  - action: utter_PERSON
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+  - action: utter_happy_neutral_unhappy
+  - intent: deny
+  - action: utter_unhappy_anything_else
+  - intent: deny
+
+- story: interactive_story_6
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+    entities:
+    - PERSON: Johnny
+  - action: utter_PERSON
+  - intent: mood_happy
+  - slot_was_set:
+    - mood: 1
+  - action: utter_happy_neutral_unhappy
+  - intent: affirm
+  - action: utter_bot_capabilities
+  - intent: faq_explain_HIV
+  - action: utter_faq_explain_HIV
+  - intent: faq_contracting_HIV
+  - action: utter_faq_contracting_HIV
+
+- story: interactive_story_7
+  steps:
+  - intent: start
+  - action: utter_greet
+  - intent: PERSON
+    entities:
+    - PERSON: Peter
+  - slot_was_set:
+    - PERSON: Peter
+  - action: utter_PERSON
+  - intent: mood_happy
+  - slot_was_set:
+    - mood: 1
+  - action: utter_happy_neutral_unhappy
+  - intent: affirm
+  - action: utter_bot_capabilities
+  - intent: faq_contracting_HIV
+  - action: utter_faq_contracting_HIV
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_8
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+    entities:
+    - PERSON: Esteban
+  - action: utter_PERSON
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+  - action: utter_happy_neutral_unhappy
+  - intent: agent.can_you_help
+  - action: utter_agent.can_you_help
+  - intent: fac_disclosure_how
+    entities:
+    - audience: girlfriend
+  - action: utter_fac_disclosure
+  - intent: deny
+  - action: utter_fac_disclosure_no
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+  - intent: fac_disclosure_how
+  - action: utter_fac_disclosure_how
+  - intent: mood_happy
+  - slot_was_set:
+    - mood: 1
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+    entities:
+    - PERSON: Pedro
+  - slot_was_set:
+    - PERSON: Pedro
+  - action: utter_PERSON
+  - intent: mood_unhappy
+  - action: utter_happy_neutral_unhappy
+  - intent: agent.can_you_help
+  - action: utter_agent.can_you_help
+  - intent: affirm
+  - action: utter_bot_capabilities
+  - intent: fac_adherence_how
+  - action: utter_fac_adherence_how
+  - intent: appraisal.thank_you
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+    entities:
+    - PERSON: Tinu
+  - action: utter_PERSON
+  - intent: mood_happy
+  - slot_was_set:
+    - mood: 1
+  - action: utter_happy_neutral_unhappy
+  - intent: agent.can_you_help
+  - action: utter_agent.can_you_help
+  - intent: affirm
+  - action: utter_bot_capabilities
+  - intent: fac_contracting_kids
+  - action: utter_fac_contracting_kids_mf
+  - intent: female
+  - slot_was_set:
+    - sex: female
+  - action: utter_fac_contracting_kids_feel
+  - intent: mood_unhappy
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+    entities:
+    - PERSON: Peter
+    - PERSON: Peter
+  - slot_was_set:
+    - PERSON: Peter
+  - action: utter_PERSON
+  - intent: mood_happy
+  - slot_was_set:
+    - mood: 1
+  - action: utter_happy_neutral_unhappy
+  - intent: affirm
+  - action: utter_bot_capabilities
+  - intent: fac_disclosure_how
+    entities:
+    - audience: girlfriend
+  - action: utter_fac_disclosure
+  - intent: deny
+  - action: utter_fac_disclosure_no
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+  - action: utter_fac_disclosure_how
+  - intent: appraisal.thank_you
+  - action: utter_appraisal.thank_you
+  - intent: fac_adherence_why
+  - action: utter_fac_adherence_why
+  - intent: mood_unhappy
+  - action: utter_fac_adherence_how
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+    entities:
+    - PERSON: Peter
+    - PERSON: Peter
+  - slot_was_set:
+    - PERSON: Peter
+  - action: utter_PERSON
+  - intent: mood_happy
+  - slot_was_set:
+    - mood: 1
+  - action: utter_happy_neutral_unhappy
+  - intent: affirm
+  - action: utter_bot_capabilities
+  - intent: fac_disclosure_how
+    entities:
+    - audience: spouse
+  - action: utter_fac_disclosure
+  - intent: deny
+  - action: utter_fac_disclosure_no
+  - intent: mood_unhappy
+  - action: utter_fac_disclosure_how
+  - intent: fac_adherence_why
+  - action: utter_fac_adherence_why
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+  - action: utter_fac_adherence_how
+  - intent: fac_contracting_sex
+  - action: utter_fac_contracting_general
+  - intent: affirm
+  - action: utter_faq_contracting_HIV
+  - action: utter_fac_contracting_sex
+  - intent: fac_contracting_kids
+  - action: utter_fac_contracting_kids_mf
+  - intent: male
+  - slot_was_set:
+    - sex: male
+  - action: utter_fac_contracting_kids_feel
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+  - action: utter_fac_contracting_kids
+
+
+- story: interactive_story_1
+  steps:
+  - intent: fac_contracting_sex
+  - action: utter_fac_contracting_general
+  - intent: affirm
+  - action: utter_faq_contracting_HIV
+  - action: utter_fac_contracting_sex
+  - intent: fac_contracting_kids
+  - action: utter_fac_contracting_kids_mf
+  - intent: female
+  - slot_was_set:
+    - sex: female
+  - action: utter_fac_contracting_kids_feel
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+  - action: utter_fac_contracting_kids
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: PERSON
+    entities:
+    - PERSON: Simone
+  - slot_was_set:
+    - PERSON: Simone
+  - action: utter_PERSON
+  - intent: mood_happy
+  - slot_was_set:
+    - mood: 1
+  - action: utter_happy_neutral_unhappy
+  - intent: affirm
+  - action: utter_bot_capabilities
+  - intent: fac_disclosure_how
+    entities:
+    - audience: girlfriend
+  - action: utter_fac_disclosure
+  - intent: deny
+  - action: utter_fac_disclosure_no
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+  - action: utter_fac_disclosure_how
+  - intent: appraisal.thank_you
+  - action: utter_appraisal.thank_you
+  - intent: fac_adherence_why
+  - action: utter_fac_adherence_why
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+  - action: utter_fac_adherence_how
+  - intent: mood_neutral
+  - slot_was_set:
+    - mood: 0
+
+- story: interactive_story_1
+  steps:
+  - intent: fac_contracting_kids
+  - action: utter_fac_contracting_kids_mf
+  - intent: female
+    entities:
+    - sex: Female
+  - action: utter_fac_contracting_kids_feel
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+
+- story: interactive_story_1
+  steps:
+  - intent: fac_contracting_sex
+  - action: utter_fac_contracting_general
+  - intent: affirm
+  - action: utter_faq_contracting_HIV
+  - action: utter_fac_contracting_sex
+  - intent: fac_contracting_kids
+  - action: utter_fac_contracting_kids_mf
+  - intent: female
+    entities:
+    - sex: Female
+  - slot_was_set:
+    - sex: female
+  - action: utter_fac_contracting_kids_feel
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+  - action: utter_fac_contracting_kids
+
+- story: interactive_story_1
+  steps:
+  - intent: fac_contracting_kids
+  - action: utter_fac_contracting_kids_mf
+  - intent: female
+    entities:
+    - sex: female
+  - action: utter_fac_contracting_kids_feel
+  - intent: mood_unhappy
+  - slot_was_set:
+    - mood: -1
+  - action: utter_fac_contracting_kids
