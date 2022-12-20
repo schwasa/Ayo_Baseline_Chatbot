@@ -4,7 +4,7 @@ This is the baseline/benchmarking chatbot version used within my Masters Thesis.
 
 ## Installation & Configuration
 
-Here are the simple steps that you can follow to use the chatbot:
+Here are the steps that you can follow to use the chatbot:
 
 * Create new folder/directory, install python and create virtual environment
 
