@@ -40,3 +40,7 @@ Here are the simple steps that you can follow to use the chatbot:
     rasa run actions
     ```
 * Start talking to the bot in terminal with command rasa shell
+
+    ```
+    rasa shell
+    ```
